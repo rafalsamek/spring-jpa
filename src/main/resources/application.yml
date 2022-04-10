@@ -10,5 +10,6 @@ spring:
     user: wreczyck
     password: <password>
     url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=wreczyck
-    locations: classpath:db/migration
+    locations: classpath:db/migrations
     schemas: [wreczyck]
+    enabled: false
