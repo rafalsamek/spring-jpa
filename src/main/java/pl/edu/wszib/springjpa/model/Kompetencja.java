@@ -1,7 +1,7 @@
 package pl.edu.wszib.springjpa.model;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import java.time.Instant;
 
 public class Kompetencja {
