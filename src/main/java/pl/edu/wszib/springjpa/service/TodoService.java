@@ -20,7 +20,7 @@ public class TodoService implements CrudService<ToDo, Integer> {
 
     @Override
     public ToDo get(Integer id) {
-        return repository.getReferenceById(id);
+        return repository.findById(id).get();
     }
 
     @Override

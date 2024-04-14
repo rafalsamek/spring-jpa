@@ -1,35 +1,41 @@
 package pl.edu.wszib.springjpa.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.wszib.springjpa.model.ToDo;
+import pl.edu.wszib.springjpa.service.TodoService;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/todos")
 public class TodoController {
+    @Autowired
+    private TodoService service;
+
     @GetMapping
     public List<ToDo> list() {
-        return null;
+        return service.list();
     }
 
     @GetMapping("/{id}")
     public ToDo get(@PathVariable Integer id) {
-        return null;
+        return service.get(id);
     }
 
     @PostMapping
     public ToDo create(@RequestBody ToDo toDo) {
-        return null;
+        return service.create(toDo);
     }
 
     @PutMapping
     public ToDo update(@PathVariable Integer id, @RequestBody ToDo toDo) {
-        return null;
+        toDo.setId(id);
+        return service.update(toDo);
     }
 
     @DeleteMapping
-    public void delte(@PathVariable Integer id) {
-
+    public void delete(@PathVariable Integer id) {
+        service.delete(id);
     }
 }
