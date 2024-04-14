@@ -1,10 +1,13 @@
 spring:
   datasource:
-    username: wreczyck
+    username: rsamek
     password: ${MORFEUSZ_PASSWORD}
-    url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=wreczyck;encrypt=false;
+    url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=rsamek;encrypt=false;
   liquibase:
     change-log: classpath:db/changelog/changelog-master.json
-#  jpa:
-#    hibernate:
-#      ddl-auto: create-drop
+    enabled: false
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: create-drop

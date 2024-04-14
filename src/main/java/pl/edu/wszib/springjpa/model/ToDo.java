@@ -1,15 +1,28 @@
 package pl.edu.wszib.springjpa.model;
 
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.Instant;
 
+@Entity
+@Table(name = "todo")
 public class ToDo {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
+  @Column(nullable = false)
   private String zadanie;
+  @Column(nullable = false)
   private ToDoStatus status;
+  @Column(nullable = false)
   private Instant termin;
+  @CreationTimestamp
   private Instant createdAt;
+  @UpdateTimestamp
   private Instant updatedAt;
 
   public Integer getId() {
