@@ -5,9 +5,9 @@ spring:
     url: jdbc:sqlserver://morfeusz.wszib.edu.pl:1433;databaseName=rsamek;encrypt=false;
   liquibase:
     change-log: classpath:db/changelog/changelog-master.json
-    enabled: true
+    enabled: false
   profiles:
     active: local
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
