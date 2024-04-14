@@ -1,14 +1,26 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.time.Instant;
 
+@Entity
 public class Produkt {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
+  @Column(nullable = false)
   private String nazwa;
+  @Column(nullable = false)
   private Integer ilosc;
+  @Column(nullable = false)
   private Float cena;
+  @CreationTimestamp
   private Instant createdAt;
+  @UpdateTimestamp
   private Instant updatedAt;
 
   public Integer getId() {
