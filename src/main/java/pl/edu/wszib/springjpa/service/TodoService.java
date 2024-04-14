@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.edu.wszib.springjpa.model.ToDo;
 import pl.edu.wszib.springjpa.model.ToDoStatus;
 import pl.edu.wszib.springjpa.repository.TodoRepository;
+import pl.edu.wszib.springjpa.specifications.ToDoSpecifications;
 
 import java.util.List;
 
@@ -19,7 +20,9 @@ public class TodoService implements CrudService<ToDo, Integer> {
     }
 
     public List<ToDo> listByStatus(ToDoStatus status) {
-        return repository.findAllByStatus(status);
+        return repository.findAll(
+                ToDoSpecifications.toDoSpecification(null, status)
+        );
     }
 
     @Override
