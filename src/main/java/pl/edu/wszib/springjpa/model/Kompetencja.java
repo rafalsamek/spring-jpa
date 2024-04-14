@@ -1,12 +1,16 @@
 package pl.edu.wszib.springjpa.model;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
+
 import java.time.Instant;
 
+@Entity
 public class Kompetencja {
 
+  @Id
+  @GeneratedValue
   private Integer id;
+  @Enumerated(EnumType.STRING)
   private KompetencjaRodzaj rodzaj;
   private String nazwa;
   private Integer stopien;

@@ -1,8 +1,15 @@
 package pl.edu.wszib.springjpa.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.time.Instant;
 
+@Entity
 public class Praca {
+  @Id
+  @GeneratedValue
   private long id;
   private String nazwaFirmy;
   private String pracaOd;
