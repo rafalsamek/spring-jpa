@@ -12,6 +12,6 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<ToDo, Integer> {
     List<ToDo> findAllByStatus(ToDoStatus status);
 
-    @Query("select t from ToDo t where t.status = :status")
-    List<ToDo> getOnlyNew(ToDoStatus status);
+    @Query("select t from ToDo t where t.status = 'NEW'")
+    List<ToDo> getOnlyNew();
 }
