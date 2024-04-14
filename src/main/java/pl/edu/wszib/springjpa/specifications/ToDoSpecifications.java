@@ -29,10 +29,6 @@ public class ToDoSpecifications {
                 );
             }
 
-            predicateList.add(
-                    builder.equal(root.get("something"),123)
-            );
-
             return builder.and(predicateList.toArray(new Predicate[]{}));
         };
     }
