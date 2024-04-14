@@ -18,6 +18,10 @@ public class TodoService implements CrudService<ToDo, Integer> {
         return repository.findAll();
     }
 
+    public List<ToDo> listByStatus(ToDoStatus status) {
+        return repository.findAllByStatus(status);
+    }
+
     @Override
     public ToDo get(Integer id) {
         return repository.findById(id).get();

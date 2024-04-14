@@ -3,6 +3,7 @@ package pl.edu.wszib.springjpa.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.wszib.springjpa.model.ToDo;
+import pl.edu.wszib.springjpa.model.ToDoStatus;
 import pl.edu.wszib.springjpa.service.TodoService;
 
 import java.util.List;
@@ -14,8 +15,8 @@ public class TodoController {
     private TodoService service;
 
     @GetMapping
-    public List<ToDo> list() {
-        return service.list();
+    public List<ToDo> list(@RequestParam(required = false) ToDoStatus status) {
+        return status == null ? service.list() : service.listByStatus(status);
     }
 
     @GetMapping("/{id}")
