@@ -1,6 +1,10 @@
 package pl.edu.wszib.springjpa.controller;
 
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.wszib.springjpa.model.ToDo;
 import pl.edu.wszib.springjpa.model.ToDoStatus;
@@ -17,6 +21,11 @@ public class TodoController {
     @GetMapping
     public List<ToDo> list(@RequestParam(required = false) ToDoStatus status) {
         return status == null ? service.list() : service.listByStatus(status);
+    }
+
+    @GetMapping("/page")
+    public Page<ToDo> page(@PageableDefault @ParameterObject Pageable pageable) {
+        return service.page(pageable);
     }
 
     @GetMapping("/{id}")
