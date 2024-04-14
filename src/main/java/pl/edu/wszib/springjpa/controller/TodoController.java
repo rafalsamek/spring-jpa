@@ -38,13 +38,13 @@ public class TodoController {
         return service.create(toDo);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ToDo update(@PathVariable Integer id, @RequestBody ToDo toDo) {
         toDo.setId(id);
         return service.update(toDo);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }
